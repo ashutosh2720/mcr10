@@ -82,7 +82,7 @@ const FormPage = () => {
 
 
                     <label htmlFor="">imge URL </label>
-                    <input name='imageUrl' onChange={changeHandler} className='border-[1px] p-2 border-black' type="text" name="" id="" />
+                    <input name='imageUrl' onChange={changeHandler} className='border-[1px] p-2 border-black' type="text" id="" />
                     <button type='submit' className='bg-blue-600 p-2 text-white text-xl font-serif'>Add product</button>
                 </form>
             </div>
