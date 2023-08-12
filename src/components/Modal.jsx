@@ -5,7 +5,7 @@ function Modal({ setModal }) {
         <div className='fixed inset-0 bg-black/30'>
             <h1>Add new product </h1>
             <div className="form flex justify-center items-center">
-                <form action="" className='flex flex-col h-[100%] w-[50%]  bg-white rounded-md p-5'>
+                <form action="" className='flex flex-col h-[100%] w-[50%]   bg-white rounded-md p-5'>
                     <label htmlFor="" >Department</label>
                     <select name="" id="" className='border-[1px] p-2 border-black'>
                         <option value="">
@@ -23,7 +23,7 @@ function Modal({ setModal }) {
                     <input className='border-[1px] p-2 border-black' type="text" name="" id="" />
 
                     <label htmlFor="">Description</label>
-                    <textarea className='border-[1px] p-2 border-black' name="" id="" cols="30" rows="10"></textarea>
+                    <textarea className='border-[1px] p-2 border-black' name="" id="" cols="10" rows="0"></textarea>
 
 
                     <label htmlFor="">Price</label>
