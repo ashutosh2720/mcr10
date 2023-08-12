@@ -25,12 +25,15 @@ const Products = () => {
                 <select
                     onChange={(e) => setSelectedDepartmentFilter(e.target.value)}
                     value={selectedDepartmentFilter}
-                    className="border-[1px] border-black"
+                    className="border-2 border-black/40 p-2"
                 >
-                    <option value="all">All departments</option>
-                    <option value="Kitchen">Kitchen</option>
-                    <option value="Clothing">Clothing</option>
-                    <option value="Toys">Toys</option>
+                    <option value="">All Departments</option>
+
+                    {allDetartments.map((department) => (
+                        <option key={department} value={department}>
+                            {department}
+                        </option>
+                    ))}
                 </select>
 
                 <div className="stock flex gap-1">
@@ -42,7 +45,6 @@ const Products = () => {
                     name=""
                     id=""
                     className="border-2 border-black"
-
                 >
                     <option value="name">Name</option>
                     <option value="price">Price</option>

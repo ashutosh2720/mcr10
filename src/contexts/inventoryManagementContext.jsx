@@ -23,6 +23,8 @@ const InventoryManagementContextProvider = ({ children }) => {
         localStorage.setItem('sortBy', sortBy)
     }, [selectedDepartmentFilter, sortBy])
 
+
+
     const totalStock = allInventoryData.reduce((acc, curObj) => acc + curObj.stock, 0)
 
     const totalDeleverd = allInventoryData.reduce((acc, curObj) => acc + curObj.delivered, 0)
@@ -33,6 +35,10 @@ const InventoryManagementContextProvider = ({ children }) => {
         acc.includes(data.department) ? null : acc.push(data.department)
         return acc;
     }, []);
+
+    const findProduct = (id) => {
+        return allInventoryData.find(product => product.id === id)
+    }
 
     const addNewProduct = (product) => {
         setAllInventoryData(prev => [{ id: uuid(), ...product }, ...prev])
@@ -54,7 +60,7 @@ const InventoryManagementContextProvider = ({ children }) => {
 
 
     return (
-        <inventoryManagementContext.Provider value={{ allInventoryData, totalStock, totalDeleverd, lowStockItem, allDetartments, allInventoryData, addNewProduct, setSelectedDepartmentFilter, filteredData, setSortBy, setIsLowStockItem, selectedDepartmentFilter }}>
+        <inventoryManagementContext.Provider value={{ allInventoryData, totalStock, totalDeleverd, lowStockItem, allDetartments, allInventoryData, addNewProduct, setSelectedDepartmentFilter, filteredData, setSortBy, setIsLowStockItem, selectedDepartmentFilter, findProduct }}>
             {children}
         </inventoryManagementContext.Provider>
     )
