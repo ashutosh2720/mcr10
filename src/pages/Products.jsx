@@ -1,46 +1,31 @@
 import React, { useState } from "react";
 import { inventoryData } from "../db/inventoryData";
-import ProductCard from "../components/ProductCard";
 import { useNavigate } from "react-router-dom";
+import { useGlobalInventory } from "../contexts/inventoryManagementContext";
+import ProductTable from "../components/ProductTable";
 
 const Products = () => {
-    const [department, selectedDepartment] = useState("");
-    const [stock, selectStock] = useState(false);
-    const [name, selectedName] = useState("");
+    const {
+        allDetartments,
+        setSelectedDepartmentFilter,
+        setSortBy,
+        setIsLowStockItem,
+        selectedDepartmentFilter,
+    } = useGlobalInventory();
     const navigate = useNavigate();
 
-    const handleDepartment = (event) => {
-        selectedDepartment(event.target.value);
+    const checkboxHandler = (e) => {
+        setIsLowStockItem(e.target.checked);
     };
-
-    const handleName = (event) => {
-        setSelectedOption2(event.target.value);
-    };
-
-    const handleStock = (event) => {
-        setCheckboxChecked(event.target.checked);
-    };
-
-    const filterData =
-        department === "all"
-            ? inventoryData
-            : inventoryData.filter((item) => item.department === department);
-
-    if (department && name) {
-
-    }
-
 
     return (
         <div className="w-[70%] h-screen relative left-[350px]">
             <div className="filter-bar flex justify-between items-center">
                 <h1 className="text-2xl font-semibold">Products</h1>
                 <select
-                    value={department}
-                    name=""
-                    id=""
-                    className="border-2 border-black"
-                    onChange={handleDepartment}
+                    onChange={(e) => setSelectedDepartmentFilter(e.target.value)}
+                    value={selectedDepartmentFilter}
+                    className="border-[1px] border-black"
                 >
                     <option value="all">All departments</option>
                     <option value="Kitchen">Kitchen</option>
@@ -48,12 +33,16 @@ const Products = () => {
                     <option value="Toys">Toys</option>
                 </select>
 
+                <div className="stock flex gap-1">
+                    <input type="checkbox" name="" id="" onChange={checkboxHandler} />
+                    <h1>low Stock</h1>
+                </div>
                 <select
-                    value={name}
+                    onChange={(e) => setSortBy(e.target.value)}
                     name=""
                     id=""
                     className="border-2 border-black"
-                    onChange={handleName}
+
                 >
                     <option value="name">Name</option>
                     <option value="price">Price</option>
@@ -66,9 +55,8 @@ const Products = () => {
                     New{" "}
                 </button>
             </div>
-            {filterData.map((data) => (
-                <ProductCard data={data} />
-            ))}
+
+            <ProductTable />
         </div>
     );
 };
