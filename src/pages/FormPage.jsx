@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Modal({ setModal }) {
+const FormPage = () => {
     return (
-        <div className='fixed inset-0 bg-black/30'>
-            <h1>Add new product </h1>
-            <div className="form flex justify-center items-center">
-                <form action="" className='flex flex-col h-[100%] w-[50%]   bg-white rounded-md p-5'>
+        <div className='w-[100%]'>
+
+            <div className="form  flex justify-center relative left-[150px] items-center">
+                <form action="" className='flex flex-col h-[100%] w-[50%]   bg-gray-200 rounded-md p-5'>
                     <label htmlFor="" >Department</label>
                     <select name="" id="" className='border-[1px] p-2 border-black'>
                         <option value="">
@@ -53,4 +53,4 @@ function Modal({ setModal }) {
     )
 }
 
-export default Modal
+export default FormPage
