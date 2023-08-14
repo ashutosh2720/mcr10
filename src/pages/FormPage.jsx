@@ -65,10 +65,10 @@ const FormPage = () => {
 
 
                     <label htmlFor="">Price</label>
-                    <input name='price' onChange={changeHandler} className='border-[1px] p-2 border-black' type="number" />
+                    <input name='price' value={product.price} onChange={changeHandler} className='border-[1px] p-2 border-black' type="number" />
 
                     <label htmlFor="">stock</label>
-                    <input name='stock' onChange={changeHandler} className='border-[1px] p-2 border-black' type="number" />
+                    <input name='stock' value={product.stock} onChange={changeHandler} className='border-[1px] p-2 border-black' type="number" />
 
                     <label htmlFor="">SKU</label>
                     <input name='sku' onChange={changeHandler} className='border-[1px] p-2 border-black' type="text" id="" />
